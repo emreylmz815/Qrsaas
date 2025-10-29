@@ -24,6 +24,7 @@
     <PackageReference Include="MailKit" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 </Project>

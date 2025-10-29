@@ -41,9 +41,13 @@ public class PaymentService : IPaymentService
 
         var token = Guid.NewGuid().ToString("N");
 
-        var html = $$"<div class=\"alert alert-info\">Iyzico sandbox anahtarlarını appsettings.json dosyasına ekleyin. Token: {token}</div>";
+		var html = $$"""
+<div class="alert alert-info">
+    Iyzico sandbox anahtarlarını appsettings.json dosyasına ekleyin. Token: {{token}}
+</div>
+""";
 
-        var meta = new
+		var meta = new
         {
             tenantId = tenant.Id,
             token,

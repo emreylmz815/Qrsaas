@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KuaceMenu.Web.Controllers;
 
-[Route("{lang:regex(^[a-zA-Z]{2}$)?}")]
+[Route("{lang:alpha:length(2)?}")]
 public class MenuController : Controller
 {
     private readonly ITenantContext _tenantContext;
@@ -17,8 +17,8 @@ public class MenuController : Controller
         _menuService = menuService;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Index(string? lang)
+	[HttpGet("")]
+	public async Task<IActionResult> Index(string? lang)
     {
         var tenant = _tenantContext.Tenant;
         if (tenant is null)

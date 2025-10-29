@@ -1,6 +1,7 @@
 using System.IO;
 using QRCoder;
 using QuestPDF.Fluent;
+using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 namespace KuaceMenu.Web.Services;
@@ -26,7 +27,7 @@ public class QrCodeService : IQrCodeService
         var png = GeneratePng(url);
         QuestPDF.Settings.License = LicenseType.Community;
 
-        using var document = Document.Create(container =>
+         var document = Document.Create(container =>
         {
             container.Page(page =>
             {
