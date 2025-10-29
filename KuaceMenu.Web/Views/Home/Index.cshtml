@@ -1,22 +1,204 @@
 @{
     ViewData["Title"] = "QR Menü SaaS";
 }
-<div class="row align-items-center">
-    <div class="col-md-6">
-        <h1 class="display-5 fw-bold">KuaceMenu ile QR menünüzü dakikalar içinde yayınlayın</h1>
-        <p class="lead">İşletmenizi kaydedin, yıllık abonelik ödemesini yapın ve alt alan adınızla menünüzü paylaşın. QRCoder ile anında QR oluşturun.</p>
-        <div class="d-flex gap-2">
-            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg">Hemen Başlayın</a>
-            <a href="https://demo.kuacemenu.com" class="btn btn-outline-secondary btn-lg">Demo Menüyü Görüntüle</a>
+<section class="hero shadow-sm mb-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+            <span class="badge bg-white text-primary fw-semibold mb-3 px-3 py-2 shadow-sm">Yeni nesil dijital menü deneyimi</span>
+            <h1 class="hero-title mb-3">KuaceMenu ile müşterilerinizin karar verme sürecini hızlandırın</h1>
+            <p class="hero-lead mb-4">Modern ve satış odaklı QR menüler oluşturun, tüm işletmelerinizi tek panelden yönetin ve aboneliklerinizi otomatik yenileyin. Dakikalar içinde yayına hazır olun.</p>
+            <div class="d-flex flex-wrap align-items-center gap-3">
+                <a asp-controller="Account" asp-action="Register" class="btn btn-cta primary-gradient">Hemen Başlayın</a>
+                <a href="https://demo.kuacemenu.com" class="btn btn-outline-glass btn-cta">Canlı Demo</a>
+                <div class="d-flex align-items-center gap-2 text-muted small">
+                    <i class="bi bi-shield-check text-primary"></i>
+                    <span>14 gün ücretsiz dene</span>
+                </div>
+            </div>
+            <div class="row row-cols-2 mt-5 g-3">
+                <div class="col">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="feature-icon"><i class="bi bi-rocket"></i></span>
+                        <div>
+                            <p class="mb-1 fw-semibold">Dakikalar içinde yayında</p>
+                            <small class="text-muted">Tek tıkla QR ve alt alan adı kurulumu</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="feature-icon"><i class="bi bi-bar-chart"></i></span>
+                        <div>
+                            <p class="mb-1 fw-semibold">Satış odaklı tasarım</p>
+                            <small class="text-muted">Ürünlerinizi öne çıkaran dinamik şablonlar</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul class="mt-4 list-unstyled">
-            <li><i class="bi bi-check-circle text-success"></i> Çoklu işletme alt alan adları</li>
-            <li><i class="bi bi-check-circle text-success"></i> Hangfire ile abonelik kontrolü</li>
-            <li><i class="bi bi-check-circle text-success"></i> Iyzico sandbox ödemesi</li>
-            <li><i class="bi bi-check-circle text-success"></i> Bootstrap 5 ile responsive panel</li>
-        </ul>
+        <div class="col-lg-6">
+            <div class="position-relative">
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1100&q=80" class="img-fluid rounded-4 shadow-lg" alt="KuaceMenu paneli" />
+                <div class="position-absolute bottom-0 start-0 translate-middle-y bg-white rounded-4 shadow-lg p-3" style="max-width: 260px;">
+                    <p class="fw-semibold mb-1">Gerçek zamanlı menü güncellemeleri</p>
+                    <div class="d-flex align-items-center gap-2 text-muted small">
+                        <i class="bi bi-clock-history text-primary"></i>
+                        <span>Ortalama 45 sn içinde yayında</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1559050019-793f2c0bafd4" alt="QR Menü" class="img-fluid rounded shadow-sm" />
+</section>
+
+<section class="mb-5">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-4 gap-2">
+        <div>
+            <h2 class="section-title mb-2">KuaceMenu ile işletmenizi büyütmeye odaklanın</h2>
+            <p class="section-subtitle">Çok lokasyonlu işletmeler için tasarlandı. Tüm süreçleri otomatikleştirerek müşterilerinize premium bir deneyim sunun.</p>
+        </div>
+        <a asp-controller="Tenants" asp-action="Create" class="btn btn-cta primary-gradient">Yeni İşletme Oluştur</a>
     </div>
-</div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon"><i class="bi bi-phone"></i></div>
+                <h3 class="h5 fw-semibold">Mobil odaklı menü şablonları</h3>
+                <p class="text-muted">Her ekran için optimize edilmiş, hızlı ve erişilebilir QR menü deneyimi sunun.</p>
+                <ul class="list-unstyled text-muted small mb-0">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Performans odaklı tasarım</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dışarı servis ve paket için ayrı görünüm</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Çok dilli içerik desteği</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon"><i class="bi bi-credit-card"></i></div>
+                <h3 class="h5 fw-semibold">Sorunsuz abonelik yönetimi</h3>
+                <p class="text-muted">Iyzico entegrasyonu sayesinde tekrar eden ödemeleri güvenle yönetin.</p>
+                <ul class="list-unstyled text-muted small mb-0">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hangfire ile otomatik kontrol</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Ödeme hatırlatıcıları</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Farklı paket tanımlama</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon"><i class="bi bi-people"></i></div>
+                <h3 class="h5 fw-semibold">Ekipler için çoklu erişim</h3>
+                <p class="text-muted">Şefler, yöneticiler ve pazarlama ekipleri aynı panelde birlikte çalışsın.</p>
+                <ul class="list-unstyled text-muted small mb-0">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Rol tabanlı yetkilendirme</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Canlı menü ön izleme</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>QR kodu paylaşım şablonları</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-5">
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="stats-card h-100">
+                <p class="text-uppercase text-primary fw-semibold mb-2">KuaceMenu'den başarı hikayeleri</p>
+                <h3 class="display-6 fw-bold mb-3">1500+ günlük QR taraması</h3>
+                <p class="text-muted mb-0">İşletmelerimiz, güncel menülerle müşterilerinin karar verme süresini %32 azaltıyor.</p>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="step-card h-100">
+                        <div class="step-number">1</div>
+                        <h4 class="h6 fw-semibold">Kaydınızı oluşturun</h4>
+                        <p class="text-muted small mb-0">Dakikalar içinde işletmenizi kaydedin, alt alan adınızı seçin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card h-100">
+                        <div class="step-number">2</div>
+                        <h4 class="h6 fw-semibold">Menülerinizi içe aktarın</h4>
+                        <p class="text-muted small mb-0">Kategori ve ürünlerinizi panelden yönetin, anında güncelleyin.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card h-100">
+                        <div class="step-number">3</div>
+                        <h4 class="h6 fw-semibold">QR'ı paylaşın</h4>
+                        <p class="text-muted small mb-0">Masalarınıza özel QR kodlarını yazdırın, kampanyalarınızı takip edin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-5">
+    <div class="row g-4 align-items-stretch">
+        <div class="col-lg-5">
+            <div class="testimonial-card h-100">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                        <i class="bi bi-chat-quote fs-4"></i>
+                    </span>
+                    <div>
+                        <p class="mb-0 fw-semibold">Selin Aksoy</p>
+                        <small class="text-muted">Beyoğlu Coffee Co. Kurucu Ortağı</small>
+                    </div>
+                </div>
+                <p class="testimonial-quote">“KuaceMenu ile tüm şubelerimizi tek panelden yönetebiliyoruz. Menülerimizi saniyeler içinde güncelleyip kampanyalarımızı duyurabiliyoruz. Misafirlerimiz yeni arayüzü çok sevdi.”</p>
+                <div class="d-flex align-items-center gap-2 text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="pricing-card h-100">
+                        <span class="badge bg-primary bg-opacity-10 text-primary fw-semibold mb-3">Başlangıç</span>
+                        <h4 class="h5 fw-semibold">Tek işletme</h4>
+                        <p class="pricing-price mb-3">₺349<span class="fs-6 text-muted">/yıl</span></p>
+                        <ul class="list-unstyled text-muted small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Limitsiz menü güncelleme</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Standart QR şablonları</li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Temel raporlama</li>
+                        </ul>
+                        <a asp-controller="Payments" asp-action="Checkout" class="btn btn-outline-glass w-100">Paketi İncele</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pricing-card highlight h-100">
+                        <span class="badge primary-gradient text-white fw-semibold mb-3">En Popüler</span>
+                        <h4 class="h5 fw-semibold">Çoklu lokasyon</h4>
+                        <p class="pricing-price mb-3">₺549<span class="fs-6 text-muted">/yıl</span></p>
+                        <ul class="list-unstyled text-muted small mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Sınırsız işletme alt alan adı</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Premium QR tasarımları</li>
+                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Detaylı satış raporları</li>
+                        </ul>
+                        <a asp-controller="Payments" asp-action="Checkout" class="btn btn-cta primary-gradient w-100">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-5 text-center">
+    <div class="p-5 rounded-4 shadow-sm bg-white">
+        <h2 class="section-title mb-3">Masalarınızda QR dönüşümünü hızlandırın</h2>
+        <p class="section-subtitle mx-auto">KuaceMenu, restoran ve kafelerin dijital dönüşümünde güvenilir ortağıdır. Hemen kaydolun, ekibinizi davet edin ve kampanyalarınıza başlamadan önce 14 gün ücretsiz deneyin.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a asp-controller="Account" asp-action="Register" class="btn btn-cta primary-gradient">Ücretsiz Deneyin</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-glass btn-cta">Hesabınıza Giriş Yapın</a>
+        </div>
+    </div>
+</section>
