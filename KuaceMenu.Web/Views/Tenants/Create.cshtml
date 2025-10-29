@@ -1,0 +1,41 @@
+@model TenantCreateViewModel
+@{
+    ViewData["Title"] = "İşletme Oluştur";
+}
+<h1>İşletme Oluştur</h1>
+<p class="text-muted">Alt alan adınızı seçin, bilgilerinizi girin.</p>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Slug" class="form-label"></label>
+        <div class="input-group">
+            <input asp-for="Slug" class="form-control" />
+            <span class="input-group-text">.kuacemenu.com</span>
+        </div>
+        <span asp-validation-for="Slug" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ContactPhone" class="form-label"></label>
+        <input asp-for="ContactPhone" class="form-control" />
+        <span asp-validation-for="ContactPhone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <textarea asp-for="Address" class="form-control"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Logo" class="form-label"></label>
+        <input asp-for="Logo" class="form-control" type="file" />
+        <span asp-validation-for="Logo" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Devam Et</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

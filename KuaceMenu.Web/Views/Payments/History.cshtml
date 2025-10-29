@@ -1,0 +1,26 @@
+@model IReadOnlyList<Payment>
+@{
+    ViewData["Title"] = "Ödeme Geçmişi";
+}
+<h1>Ödeme Geçmişi</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Tutar</th>
+            <th>Durum</th>
+            <th>Dönem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var payment in Model)
+        {
+            <tr>
+                <td>@payment.PaidAt.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@payment.Amount.ToString("C")</td>
+                <td>@payment.Status</td>
+                <td>@payment.PeriodStart.ToLocalTime().ToString("dd.MM.yyyy") - @payment.PeriodEnd.ToLocalTime().ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

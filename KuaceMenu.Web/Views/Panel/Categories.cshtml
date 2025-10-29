@@ -1,0 +1,45 @@
+@model CategoryListViewModel
+@{
+    ViewData["Title"] = "Kategoriler";
+}
+<h1>Kategoriler</h1>
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Yeni Kategori</h5>
+                <form asp-action="CreateCategory" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="CategoryInput.Name" class="form-label"></label>
+                        <input asp-for="CategoryInput.Name" class="form-control" />
+                        <span asp-validation-for="CategoryInput.Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="CategoryInput.DisplayOrder" class="form-label"></label>
+                        <input asp-for="CategoryInput.DisplayOrder" class="form-control" />
+                        <span asp-validation-for="CategoryInput.DisplayOrder" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h5>Mevcut Kategoriler</h5>
+        <ul class="list-group">
+            @foreach (var category in Model.Categories)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>@category.Name <small class="text-muted">(@category.DisplayOrder)</small></span>
+                    <form asp-action="DeleteCategory" asp-route-id="@category.Id" method="post" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Sil</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
