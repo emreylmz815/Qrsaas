@@ -1,0 +1,56 @@
+@model PanelDashboardViewModel
+@{
+    ViewData["Title"] = "Panel";
+    var tenant = Model.Tenant;
+    var statusClass = tenant.SubscriptionStatus switch
+    {
+        SubscriptionStatus.Active => "success",
+        SubscriptionStatus.PastDue => "warning",
+        _ => "danger"
+    };
+}
+<h1>Panel</h1>
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card border-@statusClass">
+            <div class="card-body">
+                <h5 class="card-title">Abonelik Durumu</h5>
+                <p class="card-text">
+                    <span class="badge bg-@statusClass">@tenant.SubscriptionStatus</span>
+                </p>
+                <ul class="list-unstyled small">
+                    <li><strong>Başlangıç:</strong> @tenant.SubscriptionStart?.ToLocalTime().ToString("dd.MM.yyyy")</li>
+                    <li><strong>Bitiş:</strong> @tenant.SubscriptionEnd?.ToLocalTime().ToString("dd.MM.yyyy")</li>
+                    <li><strong>Grace:</strong> @tenant.GraceUntil?.ToLocalTime().ToString("dd.MM.yyyy")</li>
+                </ul>
+                <a asp-controller="Payments" asp-action="Checkout" class="btn btn-primary">Ödemeyi Yenile</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İşlem Geçmişi</h5>
+                <ul class="list-group list-group-flush">
+                    @foreach (var payment in Model.Payments.Take(5))
+                    {
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>@payment.PaidAt.ToLocalTime().ToString("dd.MM.yyyy")</span>
+                            <span>@payment.Amount.ToString("C") - @payment.Status</span>
+                        </li>
+                    }
+                </ul>
+                <a asp-controller="Payments" asp-action="History" class="btn btn-link">Tüm ödemeler</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 mt-3">
+    <div class="col-md-4">
+        <div class="list-group">
+            <a asp-action="Categories" class="list-group-item list-group-item-action">Kategoriler</a>
+            <a asp-action="Items" class="list-group-item list-group-item-action">Ürünler</a>
+            <a asp-controller="Qr" asp-action="Index" class="list-group-item list-group-item-action">QR Oluştur</a>
+        </div>
+    </div>
+</div>

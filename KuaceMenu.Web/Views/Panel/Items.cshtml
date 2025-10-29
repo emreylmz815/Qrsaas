@@ -1,0 +1,75 @@
+@model MenuItemListViewModel
+@{
+    ViewData["Title"] = "Ürünler";
+}
+<h1>Ürünler</h1>
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Yeni Ürün</h5>
+                <form asp-action="CreateItem" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="ItemInput.Name" class="form-label"></label>
+                        <input asp-for="ItemInput.Name" class="form-control" />
+                        <span asp-validation-for="ItemInput.Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ItemInput.Description" class="form-label"></label>
+                        <textarea asp-for="ItemInput.Description" class="form-control"></textarea>
+                        <span asp-validation-for="ItemInput.Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ItemInput.Price" class="form-label"></label>
+                        <input asp-for="ItemInput.Price" class="form-control" />
+                        <span asp-validation-for="ItemInput.Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ItemInput.MenuCategoryId" class="form-label">Kategori</label>
+                        <select asp-for="ItemInput.MenuCategoryId" class="form-select" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))"></select>
+                        <span asp-validation-for="ItemInput.MenuCategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ItemInput.Photo" class="form-label"></label>
+                        <input asp-for="ItemInput.Photo" type="file" class="form-control" />
+                        <span asp-validation-for="ItemInput.Photo" class="text-danger"></span>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="ItemInput.IsActive" class="form-check-input" />
+                        <label asp-for="ItemInput.IsActive" class="form-check-label"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h5>Ürün Listesi</h5>
+        @foreach (var category in Model.Categories)
+        {
+            <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <strong>@category.Name</strong>
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in category.Items)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div>@item.Name</div>
+                                <small class="text-muted">@item.Price.ToString("C")</small>
+                            </div>
+                            <form asp-action="DeleteItem" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Ürünü silmek istediğinize emin misiniz?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Sil</button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
